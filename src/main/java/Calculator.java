@@ -52,7 +52,7 @@ public  static String InnerInputValidation(String answer){
         YesOrNo = answer;
         return  YesOrNo;
     }
-public static void UserInputFunction(){
+public static void UserInputFunction() throws NumberFormatException{
         String YN ="";
         do{
             System.out.println("=======Input any numbers you want,=========");
@@ -65,7 +65,9 @@ public static void UserInputFunction(){
             if(ValidateInput(UserInput)) {
                 li.add(Integer.parseInt(UserInput));
             }
-            else{throw new NumberFormatException("Invalid input entered");}
+            else{throw new NumberFormatException("Invalid input");
+
+            }
 
 
             for(int i=0; i<li.size(); i++){
@@ -102,13 +104,16 @@ public static void UserInputFunction(){
 
                 } else {
                     throw new NumberFormatException("You have entered an incorrect input");
+
                 }
             }
         }while (YN.equals("yes"));
     }
-public static void main(String[] Args){
-
-    UserInputFunction();
+public static void main(String[] Args)throws NumberFormatException{
+   try{
+    UserInputFunction();}catch(NumberFormatException e){
+       System.out.println(e.getMessage());
+   }
     //System.out.println("The product of two numbers = "+multiply(5,4));
     //System.out.println("The sum for two numbers = "+add(6,8));
     //System.out.println("Sum = "+add(2,3,4,5));
