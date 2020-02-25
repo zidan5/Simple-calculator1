@@ -5,26 +5,24 @@ import java.util.jar.JarOutputStream;
 
 public class Calculator {
 
-public static int add(int num1, int num2){
-    return num1 + num2;
-}
 
-public  static int add(int... numbers){
-    int sum = 0;
+public  static int add(int x, int y, int... numbers){
+    int sum = x + y;
+    if(numbers !=null){
     for(int i : numbers){
         sum += i;
+     }
     }
     return  sum;
 }
 
-public static int multiply(int num1, int num2){
-    return  num1 * num2;
-}
 
-public static int multiply(int... numbers){
-    int product = 1; // anything multiplied by 1 there's no change.
+public static int multiply(int x, int y,int... numbers){
+    int product = x*y;
+    if(numbers != null){
     for(int i : numbers){
         product *= i;
+     }
     }
     return product;
 }
@@ -84,7 +82,7 @@ public static void UserInputFunction() throws NumberFormatException{
                         values[x] = li.get(x);
                     }
 
-                    System.out.println("Product = "+multiply(values));
+                    System.out.println("Product = "+multiply(1,1,values));
                     System.out.println("Want to multiply more numbers? [Y/N]");
                     String YesOrNo = sc.next().toLowerCase();
                     YN = InnerInputValidation(YesOrNo).equals("y") ? "yes": "no";
@@ -96,7 +94,7 @@ public static void UserInputFunction() throws NumberFormatException{
                     for(int x = 0; x < li.size(); x++){
                         values[x] = li.get(x);
                     }
-                    System.out.println("Sum = "+add(values));
+                    System.out.println("Sum = "+add(0,0,values));
                     System.out.println("Want to add more numbers? [Y/N]");
                     String YesOrNo = sc.next().toLowerCase();
                     YN = InnerInputValidation(YesOrNo).equals("y") ? "yes": "no";
@@ -111,7 +109,7 @@ public static void UserInputFunction() throws NumberFormatException{
     }
 public static void main(String[] Args)throws NumberFormatException{
    try{
-    UserInputFunction();}catch(NumberFormatException e){
+     UserInputFunction();}catch(NumberFormatException e){
        System.out.println(e.getMessage());
    }
     //System.out.println("The product of two numbers = "+multiply(5,4));
