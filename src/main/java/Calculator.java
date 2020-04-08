@@ -6,8 +6,8 @@ import java.util.jar.JarOutputStream;
 public class Calculator {
 
 
-public  static int add(int x, int y, int... numbers){
-    int sum = x + y;
+public  static int add(int num1, int num2, int... numbers){
+    int sum = num1 + num2;
     if(numbers !=null){
     for(int i : numbers){
         sum += i;
@@ -17,8 +17,8 @@ public  static int add(int x, int y, int... numbers){
 }
 
 
-public static int multiply(int x, int y,int... numbers){
-    int product = x*y;
+public static int multiply(int num1, int num2,int... numbers){
+    int product = num1 * num2;
     if(numbers != null){
     for(int i : numbers){
         product *= i;
@@ -43,8 +43,8 @@ public  static String InnerInputValidation(String answer){
                 Scanner sc = new Scanner(System.in);
                 answer = sc.next().toLowerCase();
                 if(answer.equals("n")){
-                    YesOrNo="no";
-                    break;}
+                      break;
+                }
             }while (!answer.equals("y"));
         }
         YesOrNo = answer;
@@ -109,31 +109,11 @@ public static void UserInputFunction() throws NumberFormatException{
     }
 public static void main(String[] Args)throws NumberFormatException{
    try{
-     UserInputFunction();}catch(NumberFormatException e){
+     UserInputFunction();
+    }catch(NumberFormatException e){
        System.out.println(e.getMessage());
-   }
-    //System.out.println("The product of two numbers = "+multiply(5,4));
-    //System.out.println("The sum for two numbers = "+add(6,8));
-    //System.out.println("Sum = "+add(2,3,4,5));
-    //System.out.println("Product = "+multiply(3,4,2,2));
-
-//    System.out.println("Enter Numbers to add and also see their product");
-//    Scanner sc = new Scanner(System.in);
-//    String Numbers = sc.next();
-//
-//    Numbers = Numbers.replaceAll("[^\\d]","");
-//    char[] CharNumbers = Numbers.toCharArray();
-//
-//    int[] StoreConvertedNumbers =new int [CharNumbers.length];
-//
-//    for(int i=0; i<CharNumbers.length; i++){
-//
-//       StoreConvertedNumbers[i] = Character.getNumericValue(CharNumbers[i]);
-//
-//    }
-//
-//    System.out.println("Sum = "+ add(StoreConvertedNumbers)+ " Product = "+ multiply(StoreConvertedNumbers));
-
+    }
+   
 }
 
 }
