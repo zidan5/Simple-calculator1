@@ -6,24 +6,23 @@ import java.util.jar.JarOutputStream;
  class Calculator {
 
 
-    public  static int add(int num1, int num2, int... numbers){
-        int sum = num1 + num2;
-        if(numbers.length != 0){
+    public  static int add(int... numbers){
+            int sum = 0;  
+       
             for(int i : numbers){
                 sum += i;
             }
-        }
+        
         return  sum;
     }
 
 
-    public static int multiply(int num1, int num2,int... numbers){
-        int product = num1 * num2;
-        if(numbers.length != 0){
+    public static int multiply(int... numbers){
+        int product = 1;
             for(int i : numbers){
                 product *= i;
             }
-        }
+        
         return product;
     }
     public static boolean ValidateInput(String str){
@@ -81,7 +80,7 @@ import java.util.jar.JarOutputStream;
                         values[x] = li.get(x);
                     }
 
-                    System.out.println("Product = "+multiply(1,1,values));
+                    System.out.println("Product = "+multiply(values));
                     System.out.println("Want to multiply more numbers? [Y/N]");
                     String YesOrNo = sc.next().toLowerCase();
                     YN = InnerInputValidation(YesOrNo).equals("y") ? "yes": "no";
@@ -93,7 +92,7 @@ import java.util.jar.JarOutputStream;
                     for(int x = 0; x < li.size(); x++){
                         values[x] = li.get(x);
                     }
-                    System.out.println("Sum = "+add(0,0,values));
+                    System.out.println("Sum = "+add(values));
                     System.out.println("Want to add more numbers? [Y/N]");
                     String YesOrNo = sc.next().toLowerCase();
                     YN = InnerInputValidation(YesOrNo).equals("y") ? "yes": "no";
